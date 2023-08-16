@@ -1,5 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Cinzel', serif;
+}
+
+:root {
+    --main-background: #00539C;
+    --secondary-background: #d49170;
+    --tertiary-background: #EEA47F;
+    --secondary-background-dark: #c08365;
+    --tertiary-background-dark: #d39170;
+}
+body {
+    background-color: var(--main-background);
+}
+
+h1 {
+    color: whitesmoke;
+    padding: 1em 1em 1em 0;
+}
+
+h2 {
+    padding: 0.4em;
+}
+
+.heading-container {
+    display: flex;
+    padding-left: 2em;
+    gap: 1em;
+}
+
+.homepage-body {
+    display: flex;
+    min-height: 100vh;
+    height: 100%;
+}
+
+.homepage-side {
+    background-color: var(--secondary-background);
+    padding: 0.8em;
+    flex: 1 1 30%;
+}
+
+.homepage-bulk {
+    padding: 0.5em 0.5em 0.5em 1.5em;
+    background-color: var(--tertiary-background);
+    flex: 1 1 70%;
+}
+
+.side-child {
+    border-radius: 4px;
+    padding: 0.5em 0.7em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.side-child:hover {background-color: var(--secondary-background-dark);}
+.project-heading {padding-top: 1em;}
+
+.task {
+    background-color: var(--tertiary-background-dark);
+    padding: 0.5em;
+    border-radius: 5px;
+    display: flex;
+    gap: 8px;
 }
