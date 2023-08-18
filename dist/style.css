@@ -52,6 +52,9 @@ h2 {
 }
 
 .side-child {
+    width: calc(100% - 2px);
+    background-color: transparent;
+    border: none;
     border-radius: 4px;
     padding: 0.5em 0.7em;
     display: flex;
@@ -62,9 +65,9 @@ h2 {
 .project-heading {padding-top: 1em;}
 
 .task {
-    background-color: var(--tertiary-background-dark);
     padding: 0.5em;
     border-radius: 5px;
     display: flex;
     gap: 8px;
 }
+.task:hover {background-color: var(--tertiary-background-dark);}
