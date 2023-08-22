@@ -1,4 +1,7 @@
 import generateHomePage from "./home";
-import { taskManager } from './task.js';
+import { taskManager, project } from './task.js';
 
 generateHomePage();
+taskManager.addTask();
+taskManager.addTask();
+project('First');

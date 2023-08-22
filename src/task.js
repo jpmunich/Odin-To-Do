@@ -1,4 +1,5 @@
 let allTasks = [];
+let allProjects = [];
 
 const task = (title, description, dueDate, priority, notes, checklist) => {
     let index = null;
@@ -22,9 +23,14 @@ const taskManager = (() => {
     return { addTask, removeTask };
 })();
 
+const projectManager = (() => {
+    function addProject() {
 
-const project = () => {
-    let projectTasks = [];
+    }
+})();
+const project = (priority) => {
+    let projectTasks = allTasks.filter(task => task.priority = priority);
+    console.log(projectTasks);
 }
-export { taskManager };
+export { taskManager, project };
 
