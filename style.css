@@ -64,7 +64,7 @@ h2 {
 .side-child:hover {background-color: var(--secondary-background-dark);}
 .project-heading {padding-top: 1em;}
 
-.task {
+.task, .add-task {
     padding: 0.5em;
     border-radius: 5px;
     display: flex;
