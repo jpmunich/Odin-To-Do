@@ -6,31 +6,47 @@ const task = (title, description, dueDate, priority, notes, checklist) => {
     return { title, description, dueDate, priority, notes, checklist, index };
 }
 
+const project = (title) => {
+    return { title };
+}
+
 const taskManager = (() => {
     function addTask() {
         const newTask = task('Task', 'This is a task', '19 August 2023', 'First', 'Some Notes', 'Everything Checked');
         allTasks.push(newTask);
         newTask.index = allTasks.indexOf(allTasks[allTasks.length -  1]);
+        console.log(allTasks)
     }
     
     function removeTask(task) {
         const removedIndex = task;
     
         allTasks.splice(task, 1);
-        allTasks.forEach(todo => {if (todo.index > 0 && todo.index > removedIndex) todo.index -= 1})
+        allTasks.forEach(todo => {if (todo.index > 0 && todo.index > removedIndex) todo.index -= 1});
+        console.log(allTasks)
     }
 
     return { addTask, removeTask };
 })();
 
 const projectManager = (() => {
-    function addProject() {
+    function addProject(priority) {
+        const newProject = project('Project One');
+        allProjects.push(newProject);
 
+        const projectTasks = allTasks.filter(task => task.priority = priority);
+        console.log(projectTasks);
+        console.log(allProjects)
     }
+
+    function removeProject(project) {
+        const removedIndex = project;
+
+        allProjects.splice(project, 1);
+        allProjects.forEach(project => {if (project.index > 0 && project.index > removedIndex) project.index -= 1});
+    }
+    return { addProject, removeProject };
 })();
-const project = (priority) => {
-    let projectTasks = allTasks.filter(task => task.priority = priority);
-    console.log(projectTasks);
-}
-export { taskManager, project };
+
+export { taskManager, projectManager };
 
