@@ -1,3 +1,5 @@
+import { createTask, removeTask } from './UIController.js';
+
 let allTasks = [];
 let allProjects = [];
 
@@ -15,7 +17,7 @@ const taskManager = (() => {
         const newTask = task('Task', 'This is a task', '19 August 2023', 'First', 'Some Notes', 'Everything Checked');
         allTasks.push(newTask);
         newTask.index = allTasks.indexOf(allTasks[allTasks.length -  1]);
-        console.log(allTasks)
+        createTask(newTask.title);
     }
     
     function removeTask(task) {
@@ -23,7 +25,6 @@ const taskManager = (() => {
     
         allTasks.splice(task, 1);
         allTasks.forEach(todo => {if (todo.index > 0 && todo.index > removedIndex) todo.index -= 1});
-        console.log(allTasks)
     }
 
     return { addTask, removeTask };
@@ -35,8 +36,6 @@ const projectManager = (() => {
         allProjects.push(newProject);
 
         const projectTasks = allTasks.filter(task => task.priority = priority);
-        console.log(projectTasks);
-        console.log(allProjects)
     }
 
     function removeProject(project) {
@@ -48,5 +47,5 @@ const projectManager = (() => {
     return { addProject, removeProject };
 })();
 
-export { taskManager, projectManager };
+export { taskManager, projectManager, allTasks };
 

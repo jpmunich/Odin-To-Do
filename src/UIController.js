@@ -1,3 +1,5 @@
+import { allTasks } from './task.js';
+
 function createTextElement(textType, text, className, parent) {
     const element = document.createElement(textType);
     element.innerText = text;
@@ -26,9 +28,9 @@ function createHomePageSideChild(imgSrc, text, parent) {
     parent.appendChild(childContainer);
 }
 
-function createTask(parent) {
+function createAddTask(parent) {
     const task = document.createElement('div');
-    task.classList.add('task');
+    task.classList.add('add-task');
     const taskImg = document.createElement('img');
     taskImg.src = '../dist/images/plus.svg'
     const taskText = document.createElement('p');
@@ -38,4 +40,13 @@ function createTask(parent) {
     parent.appendChild(task);
 }
 
-export { createTextElement, createBasicElement, createHomePageSideChild, createTask };
+function createTask(text) {
+    const task = document.createElement('div');
+    task.classList.add('task');
+    const taskText = document.createElement('p');
+    taskText.innerText = text;
+    task.appendChild(taskText);
+    document.querySelector('.homepage-bulk').appendChild(task);
+}
+
+export { createTextElement, createBasicElement, createHomePageSideChild, createAddTask, createTask };
