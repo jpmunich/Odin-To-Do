@@ -1,4 +1,5 @@
-import { createTextElement, createHomePageSideChild, createTask, createBasicElement } from "./UIController";
+import { createTextElement, createHomePageSideChild, createAddTask, createBasicElement } from "./UIController";
+import { taskManager } from "./task";
 const content = document.getElementById('content');
 
 export default function generateHomePage() {
@@ -6,7 +7,7 @@ export default function generateHomePage() {
     const divImg = createBasicElement('img', container, 'heading-img');
     divImg.src = '../dist/images/header-check.svg';
 
-    const mainHeader = createTextElement('h1', 'Odin To Do List', 'main-header', container);
+    const mainHeader = createTextElement('h1', 'To Do List', 'main-header', container);
     const homepageBody = createBasicElement('div', content, 'homepage-body');
     const homepageSide = createBasicElement('div', homepageBody, 'homepage-side');
     const homepageBulk = createBasicElement('div', homepageBody, 'homepage-bulk');
@@ -19,9 +20,5 @@ export default function generateHomePage() {
     createTextElement('h2', 'Projects', 'project-heading', homepageSide);
     createHomePageSideChild('../dist/images/plus.svg', 'Add Project', homepageSide);
 
-    createTask(homepageBulk);
-}
-
-function addProject() {
-    createHomePageSideChild()
+    const addTaskButton = createAddTask(homepageBulk);
 }

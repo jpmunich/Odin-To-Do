@@ -29,7 +29,7 @@ function createHomePageSideChild(imgSrc, text, parent) {
 }
 
 function createAddTask(parent) {
-    const task = document.createElement('div');
+    const task = document.createElement('button');
     task.classList.add('add-task');
     const taskImg = document.createElement('img');
     taskImg.src = '../dist/images/plus.svg'
@@ -38,15 +38,17 @@ function createAddTask(parent) {
     task.appendChild(taskImg);
     task.appendChild(taskText);
     parent.appendChild(task);
+    return task;
 }
 
-function createTask(text) {
+function createTask(text, parentNode) {
     const task = document.createElement('div');
     task.classList.add('task');
     const taskText = document.createElement('p');
     taskText.innerText = text;
     task.appendChild(taskText);
-    document.querySelector('.homepage-bulk').appendChild(task);
+    parentNode.appendChild(task);
+    document.querySelector('.homepage-bulk').appendChild(parentNode);
 }
 
 export { createTextElement, createBasicElement, createHomePageSideChild, createAddTask, createTask };
