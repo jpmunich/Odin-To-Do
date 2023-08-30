@@ -16,7 +16,7 @@ function createBasicElement(type, parent, className) {
 }
 
 function createHomePageSideChild(imgSrc, text, parent) {
-    const childContainer = document.createElement('button');
+    const childContainer = document.createElement('div');
     childContainer.classList.add('side-child');
     const childIcon = document.createElement('img');
     childIcon.src = imgSrc;
