@@ -31,7 +31,7 @@ const taskManager = (() => {
         return allTasks.some((task) => task.title === taskTitle);
     }
 
-    return { addTask, removeTask };
+    return { addTask, removeTask, isInProject };
 })();
 
 const projectManager = (() => {

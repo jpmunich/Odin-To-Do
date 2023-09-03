@@ -1,4 +1,4 @@
-import { createTextElement, createHomePageSideChild, createAddTask, createBasicElement } from "./UIController";
+import { createTextElement, createHomePageSideChild, createAddTask, createTask, createBasicElement } from "./UIController";
 import { taskManager } from "./task";
 const content = document.getElementById('content');
 
@@ -21,4 +21,9 @@ export default function generateHomePage() {
     createHomePageSideChild('../dist/images/plus.svg', 'Add Project', homepageSide);
 
     const addTaskButton = createAddTask(homepageBulk);
+    addTaskButton.addEventListener('click', (input) => {
+        input = prompt();
+        if (!taskManager.isInProject(input)) createTask(input, homepageBulk);
+        taskManager.addTask(input);
+    })
 }

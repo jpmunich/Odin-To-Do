@@ -1,4 +1,4 @@
-import { allTasks } from './task.js';
+import { taskManager } from './task.js';
 
 function createTextElement(textType, text, className, parent) {
     const element = document.createElement(textType);
@@ -41,14 +41,26 @@ function createAddTask(parent) {
     return task;
 }
 
-function createTask(text, parentNode) {
+function createTask(title, parent) {
     const task = document.createElement('div');
     task.classList.add('task');
+
     const taskText = document.createElement('p');
-    taskText.innerText = text;
+    taskText.innerText = title;
+
+    const removeButton = document.createElement('button');
+    removeButton.classList.add('task-remove-button');
+    removeButton.addEventListener('click', () => {
+        taskManager.removeTask(title);
+        task.remove();
+    })
+    removeButton.innerText = 'Remove';
+
     task.appendChild(taskText);
-    parentNode.appendChild(task);
-    document.querySelector('.homepage-bulk').appendChild(parentNode);
+    task.appendChild(removeButton);
+
+    parent.appendChild(task);
+    return task;
 }
 
 export { createTextElement, createBasicElement, createHomePageSideChild, createAddTask, createTask };
