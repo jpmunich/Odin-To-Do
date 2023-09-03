@@ -1,4 +1,4 @@
-import { taskManager } from './task.js';
+import { taskManager, projectManager } from './task.js';
 
 function createTextElement(textType, text, className, parent) {
     const element = document.createElement(textType);
@@ -15,6 +15,13 @@ function createBasicElement(type, parent, className) {
     return element;
 }
 
+function addActiveProjectButtonClass(project) {
+    document.querySelectorAll('.side-child').forEach(element => {
+        element.classList.remove('side-child-clicked');
+    })
+    project.classList.add('side-child-clicked');
+}
+
 function createHomePageSideChild(imgSrc, text, parent) {
     const project = document.createElement('button');
     project.classList.add('side-child');
@@ -23,19 +30,21 @@ function createHomePageSideChild(imgSrc, text, parent) {
     const projectText = document.createElement('p');
     projectText.innerText = text;
 
-    project.addEventListener('click', () => {
-        console.log(text)
-    })
     project.appendChild(projectIcon);
     project.appendChild(projectText);
     parent.appendChild(project);
+
+    project.addEventListener('click', (e) => {
+            projectManager.setActiveProject(e.target.innerText);
+            addActiveProjectButtonClass(e.target);
+        })
 
     return project;
 }
 
 function createAddProject(imgSrc, text, parent) {
     const project = document.createElement('button');
-    project.classList.add('side-child');
+    project.classList.add('add-project-button');
     const projectIcon = document.createElement('img');
     projectIcon.src = imgSrc;
     const projectText = document.createElement('p');
@@ -56,8 +65,9 @@ function createProject(title, parent) {
     const projectText = document.createElement('p');
     projectText.innerText = title;
 
-    project.addEventListener('click', () => {
-        console.log(title);
+    project.addEventListener('click', (e) => {
+        projectManager.setActiveProject(e.target.innerText);
+        addActiveProjectButtonClass(e.target);
     })
 
     project.appendChild(projectIcon);
