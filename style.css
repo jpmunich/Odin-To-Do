@@ -64,14 +64,7 @@ h2 {
 .side-child:hover {background-color: var(--secondary-background-dark);}
 .project-heading {padding-top: 1em;}
 
-.task {
-    padding: 0.5em;
-    border-radius: 5px;
-    display: flex;
-    gap: 8px;
-}
-
-.add-task {
+.add-task, .task {
     width: calc(100%);
     background: transparent;
     border: none;
@@ -80,6 +73,16 @@ h2 {
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+.task-remove-button {
+    background: transparent;
+    border: none;
+    margin-left: auto;
+    padding: 0.2em;
+}
+.task-remove-button:hover {
+    background-color: #af775c;
 }
 
 .task:hover {background-color: var(--tertiary-background-dark);}
