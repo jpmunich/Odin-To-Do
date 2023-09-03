@@ -51,7 +51,7 @@ h2 {
     flex: 1 1 70%;
 }
 
-.side-child {
+.side-child, .add-project-button {
     width: calc(100% - 2px);
     background-color: transparent;
     border: none;
@@ -65,7 +65,7 @@ h2 {
     background-color: #a57055;
 }
 
-.side-child:hover {background-color: var(--secondary-background-dark);}
+.side-child:hover, .add-project-button:hover {background-color: var(--secondary-background-dark);}
 .project-heading {padding-top: 1em;}
 
 .add-task, .task {
