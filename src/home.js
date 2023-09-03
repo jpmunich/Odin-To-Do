@@ -1,5 +1,6 @@
-import { createTextElement, createHomePageSideChild, createProject, createAddTask, createTask, createBasicElement } from "./UIController";
+import { createTextElement, createHomePageSideChild, createAddProject, createProject, createAddTask, createTask, createBasicElement } from "./UIController";
 import { taskManager, projectManager } from "./task";
+
 const content = document.getElementById('content');
 
 export default function generateHomePage() {
@@ -14,11 +15,11 @@ export default function generateHomePage() {
 
     createTextElement('h2', 'Inbox', 'homepage-bulk-heading', homepageBulk);
 
-    createHomePageSideChild('../dist/images/inbox.svg', 'Inbox', homepageSide);
-    createHomePageSideChild('../dist/images/clipboard.svg', 'Today', homepageSide);
-    createHomePageSideChild('../dist/images/calendar-2.svg', 'This Week', homepageSide);
+    const inbox = createHomePageSideChild('../dist/images/inbox.svg', 'Inbox', homepageSide);
+    const today = createHomePageSideChild('../dist/images/clipboard.svg', 'Today', homepageSide);
+    const thisWeek = createHomePageSideChild('../dist/images/calendar-2.svg', 'This Week', homepageSide);
     createTextElement('h2', 'Projects', 'project-heading', homepageSide);
-    const addProjectButton = createHomePageSideChild('../dist/images/plus.svg', 'Add Project', homepageSide);
+    const addProjectButton = createAddProject('../dist/images/plus.svg', 'Add Project', homepageSide);
 
     const addTaskButton = createAddTask(homepageBulk);
     addTaskButton.addEventListener('click', (taskTitle, projectToAddTo = undefined) => {
