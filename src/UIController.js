@@ -22,7 +22,7 @@ function addActiveProjectButtonClass(project) {
     project.classList.add('side-child-clicked');
 }
 
-function createHomePageSideChild(imgSrc, text, parent) {
+function createHomePageSideChild(imgSrc, text, parent, hasActiveClass = false) {
     const project = document.createElement('button');
     project.classList.add('side-child');
     const projectIcon = document.createElement('img');
@@ -34,6 +34,7 @@ function createHomePageSideChild(imgSrc, text, parent) {
     project.appendChild(projectText);
     parent.appendChild(project);
 
+    if (hasActiveClass) project.classList.add('side-child-clicked');
     project.addEventListener('click', (e) => {
             projectManager.setActiveProject(e.target.innerText);
             addActiveProjectButtonClass(e.target);

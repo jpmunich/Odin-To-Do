@@ -15,13 +15,10 @@ export default function generateHomePage() {
 
     createTextElement('h2', 'Inbox', 'homepage-bulk-heading', homepageBulk);
 
-    const inbox = createHomePageSideChild('../dist/images/inbox.svg', 'Inbox', homepageSide);
-    projectManager.addProject('Inbox');
+    const inbox = createHomePageSideChild('../dist/images/inbox.svg', 'Inbox', homepageSide, true);
     const today = createHomePageSideChild('../dist/images/clipboard.svg', 'Today', homepageSide);
-    projectManager.addProject('Today');
     const thisWeek = createHomePageSideChild('../dist/images/calendar-2.svg', 'This Week', homepageSide);
-    projectManager.addProject('This Week');
-    
+
     createTextElement('h2', 'Projects', 'project-heading', homepageSide);
     const addProjectButton = createAddProject('../dist/images/plus.svg', 'Add Project', homepageSide);
 

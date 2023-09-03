@@ -1,14 +1,19 @@
-let allTasks = [];
-let allProjects = [];
-
 const task = (title) => {
     return {title};
 }
 
-const project = (title, isActive = false) => {
-    let tasks = [];
+const project = (title, tasks = [], isActive = false) => {
     return {title, isActive, tasks};
 }
+
+let allTasks = [];
+let allProjects = [
+    project('Inbox', allTasks, true),
+    project('Today'),
+    project('This Week')
+];
+
+
 
 const taskManager = (() => {
     const addTask = (title, projectTitle = undefined) => {
