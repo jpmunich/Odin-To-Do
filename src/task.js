@@ -5,9 +5,9 @@ const task = (title) => {
     return {title};
 }
 
-const project = (title) => {
+const project = (title, isActive = false) => {
     let tasks = [];
-    return {title, tasks};
+    return {title, isActive, tasks};
 }
 
 const taskManager = (() => {
@@ -18,7 +18,7 @@ const taskManager = (() => {
             if (projectManager.projectExists(projectTitle) && !(projectTitle === undefined)) {
                 projectManager.addTaskToProject(newTask, projectManager.getProject(projectTitle));
             }
-        } else console.log('ERROR');
+        } else console.log('ERROR! This task already exists');
 
         console.log(allTasks)
     }
@@ -46,7 +46,7 @@ const projectManager = (() => {
     const addProject = (title) => {
         const newProject = project(title);
         if (!projectExists(title)) allProjects.push(newProject);
-        else console.log('ERROR');
+        else console.log('ERROR! This project already exists');
         console.log(allProjects);
     }
 
@@ -67,7 +67,14 @@ const projectManager = (() => {
         return allProjects.some((project) => project.title === projectTitle);
     }
 
-    return { addProject, addTaskToProject, removeProject, getProject, projectExists };
+    const setActiveProject = (project) => {
+        if (projectExists(project)) {
+            allProjects.forEach((project) => project.isActive = false);
+            getProject(project)[0].isActive = true;
+        } else console.log("ERROR! Project you are trying to set active does not exist!");
+    }
+
+    return { addProject, addTaskToProject, removeProject, getProject, projectExists, setActiveProject };
 })();
 
 export { taskManager, projectManager };
