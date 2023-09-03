@@ -25,14 +25,18 @@ export default function generateHomePage() {
         taskTitle = prompt();
         projectToAddTo = prompt();
 
-        if (!taskManager.isInProject(taskTitle)) createTask(taskTitle, homepageBulk);
-        taskManager.addTask(taskTitle, projectToAddTo);
+        if (taskTitle !== '') {
+            if (!taskManager.isInProject(taskTitle)) createTask(taskTitle, homepageBulk);
+            taskManager.addTask(taskTitle, projectToAddTo);
+        }
     })
 
     addProjectButton.addEventListener('click', (projectTitle) => {
         projectTitle = prompt();
 
-        if (!projectManager.projectExists(projectTitle)) createProject(projectTitle, homepageSide);
-        projectManager.addProject(projectTitle);
+        if (projectTitle !== '') {
+            if (!projectManager.projectExists(projectTitle)) createProject(projectTitle, homepageSide);
+            projectManager.addProject(projectTitle);
+        }
     })
 }
