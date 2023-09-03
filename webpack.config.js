@@ -3,11 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { Template } = require('webpack');
 
 module.exports = {
-mode: 'development',
+mode: 'production',
 entry: {
   index: './src/index.js',
 },
-  devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Odin To Do',
