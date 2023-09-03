@@ -16,16 +16,33 @@ function createBasicElement(type, parent, className) {
 }
 
 function createHomePageSideChild(imgSrc, text, parent) {
-    const childContainer = document.createElement('div');
-    childContainer.classList.add('side-child');
-    const childIcon = document.createElement('img');
-    childIcon.src = imgSrc;
-    const childText = document.createElement('p');
-    childText.innerText = text;
+    const project = document.createElement('button');
+    project.classList.add('side-child');
+    const projectIcon = document.createElement('img');
+    projectIcon.src = imgSrc;
+    const projectText = document.createElement('p');
+    projectText.innerText = text;
 
-    childContainer.appendChild(childIcon);
-    childContainer.appendChild(childText);
-    parent.appendChild(childContainer);
+    project.appendChild(projectIcon);
+    project.appendChild(projectText);
+    parent.appendChild(project);
+
+    return project;
+}
+
+function createProject(title, parent) {
+    const project = document.createElement('button');
+    project.classList.add('side-child');
+    const projectIcon = document.createElement('img');
+    projectIcon.src = '../dist/images/check-square.svg';
+    const projectText = document.createElement('p');
+    projectText.innerText = title;
+
+    project.appendChild(projectIcon);
+    project.appendChild(projectText);
+    parent.appendChild(project);
+
+    return project;
 }
 
 function createAddTask(parent) {
@@ -41,7 +58,7 @@ function createAddTask(parent) {
     return task;
 }
 
-function createTask(title, parent) {
+function createTask(title, parent, project = undefined) {
     const task = document.createElement('div');
     task.classList.add('task');
 
@@ -63,4 +80,4 @@ function createTask(title, parent) {
     return task;
 }
 
-export { createTextElement, createBasicElement, createHomePageSideChild, createAddTask, createTask };
+export { createTextElement, createBasicElement, createHomePageSideChild, createProject, createAddTask, createTask };
