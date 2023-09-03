@@ -38,6 +38,14 @@ function createHomePageSideChild(imgSrc, text, parent, hasActiveClass = false) {
     project.addEventListener('click', (e) => {
             projectManager.setActiveProject(e.target.innerText);
             addActiveProjectButtonClass(e.target);
+
+            document.querySelectorAll('.task').forEach(element => {
+                element.remove();
+            })
+
+            projectManager.getActiveProject()[0].tasks.forEach(task => {
+                createTask(task.title, document.querySelector('.homepage-bulk'));
+            })
         })
 
     return project;

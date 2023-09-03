@@ -79,7 +79,11 @@ const projectManager = (() => {
         } else console.log("ERROR! Project you are trying to set active does not exist!");
     }
 
-    return { addProject, addTaskToProject, removeProject, getProject, projectExists, setActiveProject };
+    const getActiveProject = () => {
+        return allProjects.filter((project) => project.isActive === true);
+    }
+
+    return { addProject, addTaskToProject, removeProject, getProject, projectExists, setActiveProject, getActiveProject };
 })();
 
 export { taskManager, projectManager };
