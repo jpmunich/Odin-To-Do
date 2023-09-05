@@ -27,6 +27,10 @@ export default function generateHomePage() {
         taskTitle = prompt();
         projectToAddTo = prompt();
 
+        if (projectToAddTo === '') {
+            projectToAddTo = 'Inbox';
+        }
+
         if (taskTitle !== '') {
             if (!taskManager.isInProject(taskTitle)) createTask(taskTitle, homepageBulk);
             taskManager.addTask(taskTitle, projectToAddTo);
